@@ -16,9 +16,9 @@ pip install processtransformer
 ```
 import argparse
 import tensorflow as tf
-from process_transformer import constants
-from process_transformer.data import loader
-from process_transformer.models import transformer
+from processtransformer import constants
+from processtransformer.data import loader
+from processtransformer.models import transformer
 
 parser = argparse.ArgumentParser(description="Process Transformer - Next Activity Prediction.")
 parser.add_argument("--dataset", required=True, type=str, help="dataset name")
