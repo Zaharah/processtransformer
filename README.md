@@ -1,59 +1,60 @@
 ## Process Transformer
-
 Transformer Neural Model for Business Process Monitoring Tasks 
+
+![header image](https://github.com/Zaharah/processtransformer/blob/main/overview_pt.pdf)
+
+<details><summary>Abstract (click to expand)</summary>
+<p>
+
+Predictive business process monitoring focuses on predicting future characteristics of a running process using event logs. The foresight into process execution promises great potentials for efficient operations, better resource management, and effective customer services. Deep learning-based approaches have been widely adopted in process mining to address the limitations of classical algorithms for solving multiple problems, especially the next event and remaining-time prediction tasks. Nevertheless, designing a deep neural architecture that performs competitively across various tasks is challenging as existing methods fail to capture long-range dependencies in the input sequences and perform poorly for lengthy process traces. In this paper, we propose ProcessTransformer, an approach for learning high-level representations from event logs with an attention-based network. Our model incorporates long-range memory and relies on a self-attention mechanism to establish dependencies between a multitude of event sequences and corresponding outputs. We evaluate the applicability of our technique on nine real event logs. We demonstrate that the transformer-based model outperforms several baselines of prior techniques by obtaining on average above 80% accuracy for the task of predicting the next activity. Our method also perform competitively, compared to baselines, for the tasks of predicting event time and remaining time of a running case.
+
+</p>
+</details>
+
 
 #### Tasks
 - Next Activity Prediction
 - Time Prediction of Next Activity
 - Remaining Time Prediction
 
-#### Install 
+### Install 
 ```
 pip install processtransformer
 ```
 
-#### Usage
+
+### Usage  
+We provide the necessary code to use ProcessTransformer with the event log of your choice. We illustrate the examples using the helpdesk dataset. 
+
+**[Link to Google Colab](https://colab.research.google.com/drive/1tiOh2VS8yzOVON26CbmWn0oUn-dWAFhN#scrollTo=C2N7_MXkBpDF)** 
+
+For the datapreprocessing,  run:
+
 ```
-import argparse
-import tensorflow as tf
-from processtransformer import constants
-from processtransformer.data import loader
-from processtransformer.models import transformer
-
-parser = argparse.ArgumentParser(description="Process Transformer - Next Activity Prediction.")
-parser.add_argument("--dataset", required=True, type=str, help="dataset name")
-parser.add_argument("--task", type=constants.Task, 
-    default=constants.Task.NEXT_ACTIVITY,  help="task name")
-parser.add_argument("--epochs", default=1, type=int, help="number of total epochs")
-parser.add_argument("--batch_size", default=12, type=int, help="batch size")
-parser.add_argument("--learning_rate", default=0.001, type=float,
-                    help="learning rate")
-
-# Load data
-data_loader = loader.LogsDataLoader(name = args.dataset)
-
-(train_df, test_df, x_word_dict, y_word_dict, max_case_length, 
-    vocab_size, num_output) = data_loader.load_data(args.task)
-
-# Prepare training examples for next activity prediction task
-train_token_x, train_token_y = data_loader.prepare_data_next_activity(train_df, 
-    x_word_dict, y_word_dict, max_case_length)
-
-# Create and train a transformer model
-transformer_model = transformer.get_next_activity_model(
-    max_case_length=max_case_length, 
-    vocab_size=vocab_size,
-    output_dim=num_output)
-
-transformer_model.compile(optimizer=tf.keras.optimizers.Adam(args.learning_rate),
-    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-    metrics=[tf.keras.metrics.SparseCategoricalAccuracy()])
-    
-transformer_model.fit(train_token_x, train_token_y, 
-    epochs=args.epochs, batch_size=args.batch_size)
+python data_processing.py --dataset=helpdesk --task=next_activity
+python data_processing.py --dataset=helpdesk --task=next_time
+python data_processing.py --dataset=helpdesk --task=remaining_time
 ```
+To train and evaluate the model, run:
 
-See complete code examples within the github repository for other tasks, including preparing raw process data for transformer model.
+```
+python next_activity.py --dataset=helpdesk --epochs=100
+python next_time.py --dataset=helpdesk --epochs=100
+python remaining_time.py --dataset=helpdesk --epochs=100
+```
+You may also set the agrs manually in the script file. 
 
-#### Tools
+### Tools
 - <a href="http://tensorflow.org/">Tensorflow >=2.4</a>
+ 
+You might also need some extra helper libraries like `tqdm` (prettier for-loops) but they are not mandatory.
+
+## Data 
+The events log for the predictive busienss process monitoring can be found at [4TU Research Data](https://data.4tu.nl/categories/_/13500?categories=13503)
+
+## How to cite our paper 
+
+Please consider citing our papers if you use code or ideas from this project:
+
+Zaharah A. Bukhsh, Aaqib Saeed, & Remco M. Dijkman. (2021). ["ProcessTransformer: Predictive Business Process Monitoring with Transformer Network"](https://arxiv.org/abs/2104.00721). arXiv preprint arXiv:2104.00721 
+
