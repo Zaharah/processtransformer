@@ -1,7 +1,7 @@
 ## Process Transformer
 Transformer Neural Model for Business Process Monitoring Tasks 
 
-![header image](https://github.com/Zaharah/processtransformer/blob/main/overview_pt.pdf)
+![header image](https://github.com/Zaharah/processtransformer/blob/main/pt.JPG)
 
 <details><summary>Abstract (click to expand)</summary>
 <p>
