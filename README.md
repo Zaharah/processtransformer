@@ -1,5 +1,4 @@
 ## ProcessTransformer: Predictive Business Process Monitoring with Transformer Network
-Transformer Neural Model for Business Process Monitoring Tasks 
 
 ![header image](https://github.com/Zaharah/processtransformer/blob/main/pt.JPG)
 
@@ -24,7 +23,7 @@ pip install processtransformer
 
 
 ### Usage  
-We provide the necessary code to use ProcessTransformer with the event log of your choice. We illustrate the examples using the helpdesk dataset. 
+We provide the necessary code to use ProcessTransformer with the event logs of your choice. We illustrate the examples using the helpdesk dataset. 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1tiOh2VS8yzOVON26CbmWn0oUn-dWAFhN?usp=sharing)
 
