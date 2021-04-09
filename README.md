@@ -46,8 +46,6 @@ You may also set the agrs manually in the script file.
 
 ### Tools
 - <a href="http://tensorflow.org/">Tensorflow >=2.4</a>
- 
-You might also need some extra helper libraries like `tqdm` (prettier for-loops) but they are not mandatory.
 
 ## Data 
 The events log for the predictive busienss process monitoring can be found at [4TU Research Data](https://data.4tu.nl/categories/_/13500?categories=13503)
