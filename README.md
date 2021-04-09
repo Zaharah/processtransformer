@@ -26,7 +26,7 @@ pip install processtransformer
 ### Usage  
 We provide the necessary code to use ProcessTransformer with the event log of your choice. We illustrate the examples using the helpdesk dataset. 
 
-**[Link to Google Colab](https://colab.research.google.com/drive/1tiOh2VS8yzOVON26CbmWn0oUn-dWAFhN#scrollTo=C2N7_MXkBpDF)** 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1tiOh2VS8yzOVON26CbmWn0oUn-dWAFhN?usp=sharing)
 
 For the datapreprocessing,  run:
 
@@ -50,9 +50,9 @@ You may also set the agrs manually in the script file.
 ## Data 
 The events log for the predictive busienss process monitoring can be found at [4TU Research Data](https://data.4tu.nl/categories/_/13500?categories=13503)
 
-## How to cite our paper 
+## How to cite 
 
-Please consider citing our papers if you use code or ideas from this project:
+Please consider citing our paper if you use code or ideas from this project:
 
 Zaharah A. Bukhsh, Aaqib Saeed, & Remco M. Dijkman. (2021). ["ProcessTransformer: Predictive Business Process Monitoring with Transformer Network"](https://arxiv.org/abs/2104.00721). arXiv preprint arXiv:2104.00721 
 
