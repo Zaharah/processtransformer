@@ -12,7 +12,7 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument("--dataset", 
     type=str, 
-    default="BPIC12", 
+    default="helpdesk", 
     help="dataset name")
 
 parser.add_argument("--dir_path", 
