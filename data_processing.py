@@ -43,7 +43,7 @@ if __name__ == "__main__":
     data_processor = LogsDataProcessor(name=args.dataset, 
         filepath=args.raw_log_file, 
         columns = ["Case ID", "Activity", "Complete Timestamp"], #["case:concept:name", "concept:name", "time:timestamp"], 
-        dir_path=args.dir_path, pool = 4)
+        dir_path=args.dir_path, pool = 1)
     data_processor.process_logs(task=args.task, sort_temporally= args.sort_temporally)
     end = time.time()
     print(f"Total processing time: {end - start}")
